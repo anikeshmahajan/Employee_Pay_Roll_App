@@ -73,8 +73,8 @@
             </div>
             <div class="row-content">
                 <label class="label text" for="salary">Salary</label>
-                <input class="input" type="range" name="salary" id="salary" max="800000" min="600000" step="100" value=700000>
-                <output class="Salary-output text" for="salary">700000</output>
+                <input class="input" type="range" name="salary" id="salary" max="800000" min="400000" step="100" value=500000>
+                <output class="Salary-output text" for="salary">500000</output>
             </div>
             <div class="row-content">
                 <label class="label text" for="startdate">Start Date</label>
@@ -150,5 +150,16 @@
     </form>
     </div>
 </body>
+<script>
+  const salary = document.querySelector("#salary");
+  const out =document.querySelector(".Salary-output");
+  salary.textContent=out.value;
+  salary.addEventListener('input',function()
+  {
+      out.textContent=salary.value;
+  });
+
+    
+</script>
 
 </html>
