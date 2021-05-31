@@ -1,66 +1,65 @@
 class EmployeePayRoll{
 
-    constructor(...parms)
-    {
-        this.name = params[0];
-        this.profile = params[1];
-        this.gender = params[2];
-        this.department = params[3];
-        this.salary = params[4];
-        this.date = params[5];
-        this.notes = params[6];
-    }
-
-    getName()
+   
+    get name()
     {
         return this.name;
     }
     set name(name) {
-       this.name=name;
+        let nameRegex = "^[A-Z]{1}[a-zA-Z0-9\\s]{2,}$";
+        if (nameRegex.test(name))
+            this.name = name;
+        else
+            throw "Invalid name";
     }
-    getProfile()
+    get profile()
     {
         return this.profile;
     }
-    setProfile(profile)
+    set profile(profile)
     {
         this.profile=profile;
     }
-    getGender()
+    get gender()
     {
         return this.gender;
 
     }
-    setGender(gender)
+    set gender(gender)
     {
         this.gender=gender;
         
     }
 
-    getDepart()
+    get depart()
         {
         return this.department;
         }
-    setDepart(department)
+    set depart(department)
     {
         this.department=department;
     }
-    getSalary()
+    get salary()
     {
         return this.salary;
     }
-    setSalary(salary)
+    set salary(salary)
     {
         this.salary=salary;
 
     }
-    getDate()
+    get date()
     {
         return this.date;
     }
-    setDate(date)
-    {
-        this.date=date;
+    set date(startDate) {
+        startDate = startDate.getTime() + (30 * 24 * 60 * 60 * 1000);
+        let today = new Date().getTime() + (30 * 24 * 60 * 60 * 1000);
+        if (today >= startDate) {
+            this.startDate = startDate;
+        } else {
+            ("Invalid date");
+        }
     }
     getNotes()
     {
@@ -71,4 +70,9 @@ class EmployeePayRoll{
         this.notes = notes;
     }
    
+    toString() {
+        const options = { year: 'numeric', month: 'long', day: 'numeric' };
+        const empDate = !this.startDate ? "undefined" : this.startDate.toLocaleDateString("en-US", options);
+        return "id :" + this.id + ", name : " + this.name + ", gender :" + this.gender + ", profile picture : " + this.profilePic + ", department :" + this.department + ", salary : " + this.salary + ", startDate : " + this.startDate + ", note : " + this.note;
+    }
 }
