@@ -15,11 +15,9 @@ window.addEventListener('DOMContentLoaded', (event) => {
     });
 
     const salary = document.querySelector('#salary');
-<<<<<<< HEAD
-    const output = document.querySelector('.Salary-output');
-=======
+
     const output = document.querySelector('.salary-output');
->>>>>>> Uc13
+
     output.textContent = salary.value;
     salary.addEventListener('input', function() {
         output.textContent = salary.value;
@@ -27,12 +25,12 @@ window.addEventListener('DOMContentLoaded', (event) => {
 
 });
 
-<<<<<<< HEAD
-=======
+
 
 const save = () => {
     try {
         let employeeData = createEmployeepayRoll();
+        createAndUpdateStorage(employeePayroll);
     } catch (e) {
         return
     }
@@ -76,4 +74,15 @@ const getInputElementValue = (id) => {
     return value;
 }
 
->>>>>>> Uc13
+
+
+function createAndUpdateStorage(employeePayroll) {
+    let employeePayrollList = JSON.parse(localStorage.getItem("EmployeePayrollList"));
+    if (employeePayrollList != undefined) {
+        employeePayrollList.push(employeePayroll);
+    } else {
+        employeePayrollList = [employeePayroll];
+    }
+    alert(employeePayrollList.toString());
+    localStorage.setItem("EmployeePayrollList", JSON.stringify(employeePayrollList));
+}
