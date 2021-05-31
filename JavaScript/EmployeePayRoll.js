@@ -15,9 +15,8 @@ class EmployeePayRoll{
     {
         return this.name;
     }
-    setName(name)
-    {
-        this.name=name;
+    set name(name) {
+       this.name=name;
     }
     getProfile()
     {
@@ -71,4 +70,5 @@ class EmployeePayRoll{
     {
         this.notes = notes;
     }
+   
 }

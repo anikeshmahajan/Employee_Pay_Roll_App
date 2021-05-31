@@ -1,18 +1,40 @@
-const salary = document.querySelector("#salary");
-const out =document.querySelector(".Salary-output");
-salary.textContent=out.value;
-salary.addEventListener('input',function()
-{
-    out.textContent=salary.value;
+const salary = document.querySelector('#salary');
+const output = document.querySelector('.Salary-output');
+output.textContent = salary.value;
+salary.addEventListener('input', function() {
+    output.textContent = salary.value;
 });
-document.getElementById("submit").onclick = function()
+
+
+const text = document.querySelector('#name');
+const textError = document.querySelector(".text-error");         
+text.addEventListener('input',function(){
+    let nameRegex = RegExp("^[A-Z]{1}[a-zA-Z0-9\\s]{2,}$");
+    if(nameRegex.test(text.value)) textError.textContent= " ";
+    else textError.textContent="Name is Incorrect";
+});
+
+
+
+
+const form=document.getElementById('form');
+
+form.addEventListener('submit',function(event)
 {
-    let emp = new EmployeePayRoll()
-    emp.name =document.getElementById("name").value;
-    emp.profile = document.querySelector('input[name = profile]:checked').value;
-    emp.gender = document.querySelector('input[name = gender]:checked').value;
-    emp.department = document.querySelector('input[name = department]:checked').value;
-    emp.salary = document.getElementById("salary").value;
-    emp.notes = document.getElementById("notes").value;
-    empl.startDate = new Date(parseInt(document.getElementById("year").value), parseInt(document.getElementById("month").value), parseInt(document.getElementById("day").value));
-}
+    event.preventDefault();
+    var name = document.getElementById('name').value;
+    var profile = document.querySelector('input[name = profile]:checked').value;
+     var gender = document.querySelector('input[name = gender]:checked').value;
+     var department = document.querySelector('input[type = checkbox]:checked').value;
+     var salary = document.getElementById("salary").value;
+     var notes = document.getElementById("notes").value;
+     var startDate = new Date(parseInt(document.getElementById("year").value), parseInt(document.getElementById("month").value), parseInt(document.getElementById("day").value));
+
+     console.log("Name : "+name + "\n Profile :" +profile + "\n Gender :" +gender +
+     "\n Depart :" + department + "\n Salary :"+ salary + "\n Notes : "+ notes
+     + "StartDate :"+ startDate )
+
+    
+}); 
+
+
