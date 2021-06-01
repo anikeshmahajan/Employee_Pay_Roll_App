@@ -29,7 +29,7 @@ window.addEventListener('DOMContentLoaded', (event) => {
 
 const save = () => {
     try {
-        let employeeData = createEmployeepayRoll();
+        let employeePayroll = createEmployeepayRoll();
         createAndUpdateStorage(employeePayroll);
     } catch (e) {
         return
@@ -77,7 +77,7 @@ const getInputElementValue = (id) => {
 
 
 function createAndUpdateStorage(employeePayroll) {
-    let employeePayrollList = JSON.parse(localStorage.getItem("EmployeePayrollList"));
+    let employeePayrollList = JSON.parse(localStorage.getItem("EmployeePayrollList1"));
     if (employeePayrollList != undefined) {
         employeePayrollList.push(employeePayroll);
     } else {
